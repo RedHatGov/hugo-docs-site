@@ -1,0 +1,8 @@
+
+.env
+
+import/.env
+
+node_modules/
+
+import/node_modules

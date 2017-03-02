@@ -1,0 +1,87 @@
+#heading-breadcrumbs {
+  background: url('../img/texture-bw.png') center center repeat;
+  padding: 20px 0;
+  margin-bottom: 40px;
+}
+#heading-breadcrumbs.no-mb {
+  margin-bottom: 0;
+}
+#heading-breadcrumbs h1 {
+  color: #333333;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 991px) {
+  #heading-breadcrumbs h1 {
+    text-align: center;
+  }
+}
+#heading-breadcrumbs ul.breadcrumb {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+
+/* Home Jumbotron */
+.jumbotron{
+    background-color: #cc0000;
+    color:#fff;
+}
+.box{
+    border:1px solid #ccc;
+    padding:20px;
+}
+
+.rh-link {
+  color: black;
+}
+
+.rh-link:hover{
+  color: #cc0000;
+}
+
+/*  ASCIIDOC Numbers in [source]   */
+.conum[data-value] { display: inline-block; color: white !important; background-color: #333333; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 20px; height: 20px; font-size: 12px; line-height: 20px; font-family: "Open Sans", "Sans", sans-serif; font-style: normal; font-weight: bold; text-indent: -1px; }
+.conum[data-value] * { color: white !important; }
+.conum[data-value] + b { display: none; }
+.conum[data-value]:after { content: attr(data-value); }
+pre .conum[data-value] { position: relative; top: -2px; }
+b.conum * { color: inherit !important; }
+.conum:not([data-value]):empty { display: none; }
+
+/*  Clipboard  */
+.copy-to-clipboard {
+    background-image: url(../img/clippy.svg);
+    background-position: 50% 50%;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    width: 27px;
+    height: 1.45rem;
+    top: -1px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    color: #5e5e5e;
+    background-color: #FFF7DD;
+    margin-left: -.2rem;
+    cursor: pointer;
+    border-radius: 0 2px 2px 0;
+    margin-bottom: 1px;
+}
+.copy-to-clipboard:hover {
+    background-color: #E8E2CD;
+}
+pre .copy-to-clipboard {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    background-color: #4d5257;
+    color: #ccc;
+    border-radius: 2px;
+}
+pre .copy-to-clipboard:hover {
+    background-color: #656c72;
+    color: #fff;
+}

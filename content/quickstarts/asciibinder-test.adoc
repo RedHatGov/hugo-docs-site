@@ -1,0 +1,104 @@
+[[satellite]]
+= Red Hat Satellite
+{product-author}
+{product-version}
+:data-uri:
+:icons: font
+:experimental:
+:toc: macro
+:toc-title:
+:prewrap!:
+:source-highlighter: highlightjs
+
+
+
+toc::[]
+
+[IMPORTANT]
+====
+*This document is still a work in progress! When this label is removed, you can consider this fully functional.*
+====
+
+
+== Quick Start
+[NOTE]
+====
+This is designed to provide a copy and paste quick start for *demo* enviorments. This is not intended for *production* enviroments.
+====
+
+==== Export the Variables
+First we start by setting a couple environment variables. These will serve the rest of the copy and paste operation.
+
+*You only need to set the first 4 variables, the rest is automated via bash for you*
+[source,bash]
+----
+export HOST=satellite.redhatdod.local //<1>
+export ADMINUSER=administrator //<2>
+export ADMINPASS=supersecretpassword //<3>
+export IFACE=eth0 //<4>
+export SUBNET=$(ip -f inet address show $IFACE |grep inet|awk '{print $2}' |awk -F. '{print $1"." $2"."$3}') //<5>
+export REVSUB=$(echo $SUBNET |awk -F. '{print $3"." $2"."$1}') //<6>
+export IPADDR=$(ip -f inet address show $IFACE |grep inet|awk '{print $2}' |cut -f1 -d '/') //<7>
+----
+<1> Change this variable to the hostname you are going to use for your satellite
+<2> This is the admin user you will create, feel free to change the name to suit your liking
+<3> Please change this value to a password that is actually secure
+<4> *This is the interface you are using for Satellite* This value is what the next three variables are based from!
+<5> This is the subnet you will run DHCP and DNS on for satellite
+<6> This take the subnet you entered and provides the reverse for DNS
+<7> This gets your ip address based on the interface you gave in step 5
+
+[IMPORTANT]
+====
+*If you are not comfortable setting a password on the command line, you can not export the ADMINPASS variable.*
+
+*Satellite will generate one for you if one is not created*
+====
+
+==== Setup the Subscriptions
+Next we are going to setup your subscriptions with subscription-manager.
+
+[WARNING]
+====
+*NOTE to maintainer* This section needs to be updated with a more automated/copy&paste way to do this
+====
+----
+subscription-manager register
+subscription-manager list --available --matches 'Red Hat Satellite'
+----
+
+==== Copy and Paste deploy
+Now you can copy and paste from below, and you will have a complete satellite install upon completion.
+
+----
+echo "$IPADDR $HOST" >> /etc/hosts
+hostnamectl set-hostname $HOST
+firewall-cmd --add-service=RH-Satellite-6
+firewall-cmd --permanent --add-service=RH-Satellite-6
+subscription-manager repos --disable "*"
+subscription-manager repos --enable=rhel-7-server-rpms \
+--enable=rhel-server-rhscl-7-rpms \
+--enable=rhel-7-server-satellite-6.2-rpms
+yum clean all
+yum -y update
+yum -y install satellite chrony sos
+systemctl start chronyd
+systemctl enable chronyd
+satellite-installer --scenario satellite \
+--foreman-initial-organization "Red Hat DoD" \
+--foreman-initial-location "Local Systems" \
+--foreman-admin-username $ADMINUSER \
+--foreman-admin-password $ADMINPASS \
+--foreman-proxy-dns true \
+--foreman-proxy-dns-interface $IFACE \
+--foreman-proxy-dns-zone $(hostname -d) \
+--foreman-proxy-dns-forwarders $SUBNET.1 \
+--foreman-proxy-dns-reverse $REVSUB.in-addr.arpa \
+--foreman-proxy-dhcp true \
+--foreman-proxy-dhcp-interface $IFACE \
+--foreman-proxy-dhcp-range "$SUBNET.100 $SUBNET.150" \
+--foreman-proxy-dhcp-gateway $SUBNET.1 \
+--foreman-proxy-dhcp-nameservers $SUBNET.2 \
+--foreman-proxy-tftp true \
+--foreman-proxy-tftp-servername $IPADDR
+----

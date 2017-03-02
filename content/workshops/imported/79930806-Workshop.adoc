@@ -1,0 +1,27 @@
++++
+title ="WORKSHOP-TEST-2"
+date = "2017-01-26T23:02:01-05:00"
+tags = ["workshop-test-2"]
+categories = ["workshop-test-2"]
+banner = "img/banners/banner-3.jpg"
++++
+
+*Tag*
+
+`rh_workshop_public_sector`
+
+= OpenShift
+
+== Intro
+
+Bacon ipsum dolor amet jowl kevin pig, jerky tri-tip hamburger burgdoggen venison corned beef filet mignon sirloin porchetta shoulder. Doner frankfurter pork loin sausage shoulder venison. Meatloaf capicola porchetta pastrami doner, beef pig ham cow. Pork chop andouille bacon jowl chuck drumstick pig turkey bresaola boudin beef ribs shoulder. Alcatra pork shank pancetta jowl.
+
+=== Stuff
+
+Shank tail beef, drumstick chuck brisket tongue pork chop shoulder shankle kielbasa doner. Landjaeger swine filet mignon shankle jerky. Strip steak leberkas sausage sirloin tongue. Fatback porchetta kielbasa meatloaf filet mignon biltong. Tongue pork alcatra frankfurter pork loin corned beef.
+
+Boudin drumstick ham, shank frankfurter burgdoggen pork belly short loin. Chicken corned beef ham hock short ribs landjaeger pork loin. Alcatra ground round ham, cupim picanha capicola pork loin. Chicken corned beef shank pork chop, hamburger kielbasa shoulder burgdoggen. Salami picanha turducken, filet mignon ground round rump pastrami ham. Shankle tenderloin short loin, venison porchetta tri-tip biltong. Tongue ham hock shank, spare ribs pig bacon flank pork belly.
+
+Burgdoggen ball tip swine, venison landjaeger shank pancetta. Alcatra tenderloin bacon turkey ham hock. Cupim beef turkey ground round. Jerky ribeye burgdoggen, prosciutto ham drumstick picanha biltong pork loin chuck short loin corned beef. Doner burgdoggen frankfurter spare ribs, prosciutto pork salami bacon bresaola tri-tip filet mignon drumstick. Tongue bacon ham hock picanha, prosciutto corned beef chuck. Drumstick pork loin bacon, jowl short loin ball tip meatloaf rump pig alcatra ribeye.
+
+Jowl spare ribs brisket beef bacon, bresaola landjaeger cow tongue tri-tip salami. Bresaola ground round burgdoggen tail porchetta leberkas ball tip, brisket ham prosciutto pig flank spare ribs. Kielbasa venison tenderloin bacon burgdoggen sausage shankle. Ribeye doner porchetta, pork chuck salami jerky kielbasa landjaeger.

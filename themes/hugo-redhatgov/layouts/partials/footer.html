@@ -1,0 +1,62 @@
+<footer id="footer">
+    <div class="container">
+
+        {{ if isset .Site.Params "about_us" }}
+        <div class="col-md-4 col-sm-6">
+            <h4>About us</h4>
+
+            {{ .Site.Params.about_us | safeHTML }}
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        <!-- /.col-md-4 -->
+        {{ end }}
+        
+        <!-- Space in center -->
+        <div class="col-md-4 col-sm-6">
+            <!-- space -->
+        </div>
+        <!-- /.col-md-4 -->
+
+        {{ if isset .Site.Params "address" }}
+        <div class="col-md-4 col-sm-6">
+
+            <h4>Contact</h4>
+
+            {{ .Site.Params.address | safeHTML }}
+
+            <a href="/contact" class="btn btn-small btn-template-main">Contact Us.</a>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        <!-- /.col-md-4 -->
+        {{ end }}
+
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- /#footer -->
+
+<!-- *** FOOTER END *** -->
+
+<!-- *** COPYRIGHT ***
+_________________________________________________________ -->
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            {{ if isset .Site.Params "copyright" }}
+            <p class="pull-left">{{ .Site.Params.copyright | safeHTML }}  {{ .Date.Format "2006-01-02" }}</p>
+            {{ end }}
+            <p class="pull-right">
+
+            </p>
+        </div>
+    </div>
+</div>
+<!-- /#copyright -->
+
+<!-- *** COPYRIGHT END *** -->

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {{ partial "head.html" . }}
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+        {{ partial "nav.html" . }}
+
+        </header>
+
+        {{ partial "breadcrumbs.html" . }}
+
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                        <ul>
+                          {{ $urlPre := "https://api.github.com" }}
+                          {{ $repoJ := getJSON $urlPre "/search/repositories?q=rh" }}
+                          {{ range first 5 $repoJ }}   
+                              <li><a href="{{ .html_url }}" target="_blank">{{ . }}</a></li>
+                          {{ end }}
+                        </ul>
+</div>
+</div>
+</div>
+
