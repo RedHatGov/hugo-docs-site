@@ -25,3 +25,6 @@ Clipboard
 
 Asciidoc numbering
 
+# Shortcodes 
+
+Under `Themes/hugo-redhat/layouts/shortcodes` is where you can find the short codes Ive been playing around with. The corresponding markdown file is under `/content/workshops/imported/79835204-README.md
